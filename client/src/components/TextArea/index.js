@@ -11,16 +11,35 @@ class TextArea extends Component {
   }
   sendRequest(e) {
     this.setState({text: e.target.value});
-    console.log(this.state.text);
     axios
-    .post(textPostEndpoint,{
-      body: this.state.text,
+    .post(textPostEndpoint, e.target.value, {
+      headers: { 'Content-Type': 'text/plain' }
     })
-    .then(res => this.setState({text: res.data}))
+    .then(res => res)
     .catch((error) => {
       console.log(error);
     });
   }
+
+  getData() {
+    axios
+    .get(textPostEndpoint)
+    .then(res => this.setState({
+      text: res.data,
+    }))
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => this.getData(), 3000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   render() {
     return (
         <textarea

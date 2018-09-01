@@ -1,0 +1,164 @@
+@import '../../assets/styles/kony';
+
+.card {
+  border-radius: 6px;
+  width: 213px;
+  height: 332px;
+  margin: 10px 9px;
+  background-color: white;
+  box-shadow: 0 6px 8px $card-shadow-with-20opacity;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    box-shadow: 0 6px 8px $card-shadow-with-20opacity;
+  }
+
+  @include breakpoint(mobile) {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
+
+.flexRow {
+  height: 150px;
+
+  @include breakpoint(mobile) {
+    height: 80px;
+  }
+}
+
+.meta {
+  padding: 9px 12px;
+  height: 171px;
+
+  @include breakpoint(mobile) {
+    padding: 0;
+    margin-left: 10px;
+    height: 80px;
+  }
+}
+
+.cover,
+.image {
+  background-color: $asset-bg;
+  border-radius: 6px 6px 0 0;
+  height: 163px;
+  width: 213px;
+  z-index: 2;
+
+  @include breakpoint(mobile) {
+     height: 80px;
+     width: 80px;
+     border-radius: 6px;
+   }
+}
+
+.title {
+  font-family: $RobotoSlabRegular;
+  font-size: 16px;
+  color: $title-text;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @include breakpoint(mobile) {
+    color: $active-color-mobile;
+    font-size: 15px;
+  }
+}
+
+.author {
+  font-family: $PoppinsLight;
+  font-size: 13px;
+  color: $secondary-text;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @include breakpoint(mobile) {
+    display: none;
+  }
+}
+
+.fullHeight {
+  height: 100%;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.previewButtonWrapper {
+  text-align: right;
+  padding-right: 6px;
+  padding-top: 20px;
+}
+
+.stats {
+  font-family: $PoppinsLight;
+  font-size: 14px;
+  color: $secondary-text;
+  position: absolute;
+  bottom: 0;
+
+  span {
+    display: inline-block;
+    width: auto;
+    min-width: 33%;
+
+    i {
+      color: $filter-icon-bg;
+      font-weight: bold;
+      padding-right: 5px;
+
+      &.downloadIcon {
+        font-size: 16px;
+      }
+    }
+
+    &:last-child {
+      padding-left: 10px;
+    }
+  }
+}
+
+.desc {
+  font-family: $PoppinsLight;
+  font-size: 13px;
+  color: $title-text;
+  margin: 0;
+  word-break: break-word;
+
+  @include breakpoint(mobile) {
+    color: $secondary-text-mobile;
+  }
+}
+
+.loadingImage {
+  position: absolute;
+  top: 42px;
+  left: 72px;
+
+  @include breakpoint(mobile) {
+    top: 10px;
+    left: 9px;
+  }
+}
+
+.angleRight {
+  color: #ccc;
+  font-size: 24px;
+  margin-left: 10px;
+}

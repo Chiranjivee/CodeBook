@@ -9,7 +9,7 @@ class Pages extends Component {
       <Router>
         <div>
           <Route exact path="/distraction-free-code-editor/client/build/" component={HomePage} />
-          <Route path="/distraction-free-code-editor/client/build/:id" component={CodePage} />
+          <Route exact path="/distraction-free-code-editor/client/build/:id" component={CodePage} />
         </div>
       </Router>
     )

@@ -17,7 +17,7 @@ class LandingPage extends Component {
       this.setState({
         id: res.data,
       });
-      window.location.href = `/${this.state.id}`;
+      window.location.href = `/distraction-free-code-editor/client/build/${this.state.id}`;
     })
     .catch((error) => {
       console.log(error);

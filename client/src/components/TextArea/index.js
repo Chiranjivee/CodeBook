@@ -33,7 +33,7 @@ class TextArea extends Component {
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => this.getData(), 3000);
+    this.interval = setInterval(() => this.getData(), 1000);
   }
 
   componentWillUnmount() {

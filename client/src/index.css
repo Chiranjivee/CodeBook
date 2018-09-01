@@ -20,3 +20,16 @@
   width: 0;
   display: none;
 }
+
+.Loader {
+  align-items: center;
+  background: white;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}

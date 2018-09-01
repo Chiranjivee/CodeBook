@@ -1,39 +1,48 @@
 import React, { Component } from 'react';
+import debounce from 'lodash/debounce';
 import axios from '../../axios';
-import {textPostEndpoint} from '../../config/settings';
 
 class TextArea extends Component {
   constructor(props) {
     super(props);
     this.state = {
       text : '',
+      id: this.props.id,
     };
-  }
-  sendRequest(e) {
-    this.setState({text: e.target.value});
-    axios
-    .post(textPostEndpoint, e.target.value, {
-      headers: { 'Content-Type': 'text/plain' }
-    })
-    .then(res => res)
-    .catch((error) => {
-      console.log(error);
-    });
+    this.doGet = true;
   }
 
-  getData() {
+  sendRequest (text) {
+    this.doGet = false;
+    this.setState({text: text});
+    this.sendRequestUtil(text);
+  };
+
+  sendRequestUtil = debounce(async (text) => {
     axios
-    .get(textPostEndpoint)
-    .then(res => this.setState({
-      text: res.data,
-    }))
+    .post(`/editor/${this.state.id}/code`, text, {
+      headers: { 'Content-Type': 'text/plain' }
+    })
+    .then(res => this.doGet = true)
     .catch((error) => {
       console.log(error);
     });
+  },200);
+
+  getData() {
+    if (this.doGet)
+      axios
+      .get(`/editor/${this.state.id}/code`)
+      .then(res => this.setState({
+        text: res.data,
+      }))
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => this.getData(), 1000);
+    this.interval = setInterval(() =>  this.getData(), 1000);
   }
 
   componentWillUnmount() {
@@ -45,7 +54,7 @@ class TextArea extends Component {
         <textarea
           className="fullscreen"
           value={this.state.text}
-          onChange={e => this.sendRequest(e)}
+          onChange={e => this.sendRequest(e.target.value)}
         />
     );
   }

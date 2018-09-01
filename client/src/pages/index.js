@@ -8,8 +8,8 @@ class Pages extends Component {
     return (
       <Router>
         <div>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/:id" component={CodePage} />
+          <Route exact path="/distraction-free-code-editor/client/build/" component={HomePage} />
+          <Route path="/distraction-free-code-editor/client/build/:id" component={CodePage} />
         </div>
       </Router>
     )

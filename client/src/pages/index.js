@@ -6,7 +6,7 @@ import CodePage from './CodePage';
 class Pages extends Component {
   render() {
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <div>
           <Route exact path="/distraction-free-code-editor/client/build/" component={HomePage} />
           <Route exact path="/distraction-free-code-editor/client/build/:id" component={CodePage} />

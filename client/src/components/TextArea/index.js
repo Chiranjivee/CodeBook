@@ -55,6 +55,7 @@ class TextArea extends Component {
           className="fullscreen"
           value={this.state.text}
           onChange={e => this.sendRequest(e.target.value)}
+          placeholder="Type your code here. Happy Coding :)"
         />
     );
   }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import loaderImage from './loader.svg';
 import axios from '../../axios';
+import {Link} from "react-router-dom";
 
 class LandingPage extends Component {
   constructor(props) {
@@ -17,22 +17,21 @@ class LandingPage extends Component {
       this.setState({
         id: res.data,
       });
-      window.location.href = `/distraction-free-code-editor/client/build/${this.state.id}`;
+      window.location.href = `/${this.state.id}/code`;
     })
     .catch((error) => {
       console.log(error);
     });
   }
 
-  componentDidMount() {
-    if (this.state.id === 0)
-      this.getSessionID();
-  }
-
   render() {
     return (
-      <div className="Loader">
-        <img src={loaderImage} alt="Loader" />
+      <div className="selection">
+        <h1>Choose your type</h1>
+        <div>
+          <Link to="/code">No distraction</Link>
+          <Link to="#" onClick={e => this.getSessionID(e)}>Colab editor</Link>
+        </div>
       </div>
     );
   }

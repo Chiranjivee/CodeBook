@@ -1,3 +1,0 @@
-[submodule "server/code-board"]
-	path = server/code-board
-	url = https://github.com/Chiranjivee/code-board.git

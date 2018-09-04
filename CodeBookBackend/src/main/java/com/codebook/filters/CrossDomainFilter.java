@@ -9,7 +9,7 @@ import javax.ws.rs.ext.Provider;
 
 @Provider
 @Priority(Priorities.HEADER_DECORATOR)
-public class CORSFilter implements ContainerResponseFilter
+public class CrossDomainFilter implements ContainerResponseFilter
 {
     @Override
     public void

@@ -14,6 +14,7 @@
   font-size: 22px;
   border: transparent !important;
   outline: none !important;
+  resize: none;
 }
 
 ::-webkit-scrollbar {

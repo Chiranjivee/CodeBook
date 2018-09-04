@@ -10,4 +10,5 @@ This module is written using JAX-RS in java.
 ### Commands
 
 * build: `mvn clean install`
-* run: `mvn exec:java`
+* run: `mvn tomcat7:run`
+* site location: `http://localhost:9000/code-book/webapi/myresource`

@@ -19,5 +19,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://chiranjivee.github.io/distraction-free-code-editor"
+  "homepage": "https://chiranjivee.github.io/codebook"
 }

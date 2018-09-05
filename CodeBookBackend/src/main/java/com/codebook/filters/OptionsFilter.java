@@ -17,9 +17,7 @@ public class OptionsFilter implements ContainerRequestFilter
         filter(
             ContainerRequestContext containerRequest)
     {
-        String method = containerRequest.getMethod();
-        String path = containerRequest.getUriInfo().getPath(true);
-        if (method.equals("OPTIONS"))
+        if (containerRequest.getMethod().equals("OPTIONS"))
         {
             throw new WebApplicationException(Response.Status.OK);
         }

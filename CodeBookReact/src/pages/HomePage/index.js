@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from '../../axios';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import Button from '@material-ui/core/Button';
 
 class LandingPage extends Component {
   constructor(props) {
@@ -29,8 +30,12 @@ class LandingPage extends Component {
       <div className="selection">
         <h1>Choose your type</h1>
         <div>
-          <Link to="/code">No distraction</Link>
-          <Link to="#" onClick={e => this.getSessionID(e)}>Colab editor</Link>
+          <Button variant="outlined" component={Link} to="/code">
+            No distraction
+          </Button>
+          <Button variant="outlined" onClick={e => this.getSessionID(e)}>
+            Colab editor
+          </Button>
         </div>
       </div>
     );
